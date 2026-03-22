@@ -1,4 +1,4 @@
-# Historical HTR Pipeline
+# Historical HTR Pipeline for IEHHR Dataset
 
 An OCR pipeline for 16th-18th century Catalan and Spanish 
 handwritten documents, built for the RenAIssance GSoC project.
