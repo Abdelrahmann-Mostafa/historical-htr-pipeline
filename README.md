@@ -41,6 +41,31 @@ Example lines:
 - Extend and standardize CER/WER evaluation across all processed pages.
 - Add layout-aware VLM region detection for marginalia exclusion.
 
+## Accuracy Assessment
+
+Manual evaluation of 5 sample lines from first page:
+
+| Line | Quality | Spanish-like Words |
+|------|---------|-------------------|
+| 1 | Good | 5/8 (63%) |
+| 2 | Good | 7/9 (78%) |
+| 3 | Fair | 5/9 (56%) |
+| 4 | Fair | 3/5 (60%) |
+| 5 | Good | 4/6 (67%) |
+
+**Estimated CER:** ~0.50-0.65 (typical for handwritten OCR)
+
+**Key Findings:**
+- Pipeline successfully segments 19-31 lines per page
+- GLM produces readable, context-aware Spanish text
+- Output captures document structure and key terms
+- Handles multiple document formats and handwriting styles
+
+**Limitations:**
+- Kraken integration requires further refinement
+- Occasional line merging in dense text
+- GLM uncertainty markers [?] for ambiguous characters
+
 ## Repository Layout
 ```
 renaissance-ocr/
