@@ -1,82 +1,62 @@
-# Hybrid OCR Pipeline for Early Modern Spanish Manuscripts
+# 🚀 Hybrid OCR Pipeline for Early Modern Spanish Manuscripts
 
-## Overview
-This project implements a hybrid OCR pipeline for 16th-18th century handwritten Spanish documents.
-It combines a Kraken model trained on the IEHHR dataset, with a vision-language model to improve recognition of degraded and ambiguous text.
+## 📖 Overview
 
-The submission is focused on a clear, reproducible notebook-based workflow for GSoC evaluation.
+This project presents a hybrid OCR pipeline designed for **16th–18th century handwritten Spanish documents**, a domain where standard OCR systems struggle due to historical spelling variation and manuscript degradation.
 
-## Pipeline
-- Load manuscript PDF pages and convert each page to grayscale images.
-- Preprocess page images (contrast normalization and resizing for stable OCR).
-- Segment each page into candidate text lines using projection-based line segmentation.
-- Run OCR ensemble per line:
-  - Kraken OCR recognition on the segmented line.
-  - GLM Vision transcription on the same line image.
-  - Merge both outputs with a reconciliation prompt.
-- Apply context-aware post-correction:
-  - Line-level language refinement.
-  - Paragraph-level second-pass refinement for coherence.
-- Export per-page transcriptions and aggregate document output.
-- Compute evaluation metrics (CER/WER) when ground-truth transcription is available.
+The system combines:
 
-## Sample Output
-Curated high-confidence examples are provided in `sample_outputs/good_lines.txt`.
+- **Kraken OCR** (primary recognizer for historical text, using a model trained on the IEHHR dataset)
+- **Vision-language model (GLM)** as auxiliary support for difficult or ambiguous regions
 
-Example lines:
-- En la villa de Muguruza y Baca.
-- Ante mi, escribano publico del numero.
-- En testimonio de verdad lo firme.
-- Dada en esta villa, a veinte y dos dias.
+---
 
-## Challenges
-- Historical spelling variation.
-- Degraded manuscript quality.
-- Line segmentation inconsistencies.
+## ⚙️ Pipeline
 
-## Future Work
-- Integrate Kraken baseline-aware segmentation more robustly.
-- Fine-tune OCR on additional historical Spanish datasets.
-- Replace/add a multilingual text-correction LLM (e.g., BLOOMZ) for post-correction benchmarking.
-- Extend and standardize CER/WER evaluation across all processed pages.
-- Add layout-aware VLM region detection for marginalia exclusion.
+- Image preprocessing (resizing and normalization)  
+- Line segmentation (heuristic-based)  
+- Text recognition using Kraken OCR  
+- Auxiliary recognition using GLM Vision  
+- Merging and normalization of outputs  
 
-## Accuracy Assessment
+---
 
-Manual evaluation of 5 sample lines from first page:
+## 📝 Sample Output
+Cuando conocel Senor Alcalde dentro de su casa abridan
 
-| Line | Quality | Spanish-like Words |
-|------|---------|-------------------|
-| 1 | Good | 5/8 (63%) |
-| 2 | Good | 7/9 (78%) |
-| 3 | Fair | 5/9 (56%) |
-| 4 | Fair | 3/5 (60%) |
-| 5 | Good | 4/6 (67%) |
+Bautizo de Juanarecuita y Margarita d'Aurarcau
 
-**Estimated CER:** ~0.50-0.65 (typical for handwritten OCR)
+Informacion de la uacan lalaguay yamana de Oaxaca
 
-**Key Findings:**
-- Pipeline successfully segments 19-31 lines per page
-- GLM produces readable, context-aware Spanish text
-- Output captures document structure and key terms
-- Handles multiple document formats and handwriting styles
 
-**Limitations:**
-- Kraken integration requires further refinement
-- Occasional line merging in dense text
-- GLM uncertainty markers [?] for ambiguous characters
+---
 
-## Repository Layout
-```
-renaissance-ocr/
-|-- README.md
-|-- notebook.ipynb
-|-- notebook.pdf
-|-- sample_outputs/
-|   `-- good_lines.txt
-`-- requirements.txt
-```
+## ⚠️ Challenges
 
-## Note on `notebook.pdf`
-`notebook.pdf` is included as a placeholder file in this commit. Export the final notebook manually from Jupyter:
-`File -> Export as PDF`.
+- Variability in historical Spanish orthography  
+- Degraded and noisy manuscript images  
+- Line segmentation inconsistencies  
+- Noise introduced by auxiliary vision-language outputs  
+
+---
+
+## 🔧 Future Improvements
+
+- Integrate Kraken baseline segmentation for improved accuracy  
+- Fine-tune OCR models on historical Spanish datasets  
+- Replace vision model with multilingual text-based correction (e.g., BLOOMZ)  
+- Introduce evaluation metrics (CER/WER)  
+
+---
+
+## 📂 Contents
+
+- Jupyter notebook with full pipeline  
+- PDF export with outputs  
+- Sample processed data  
+
+---
+
+## 🎯 Goal
+
+This project demonstrates the feasibility of combining specialized OCR systems with modern AI models for **historical document transcription**, while highlighting key challenges and directions for improvement.
