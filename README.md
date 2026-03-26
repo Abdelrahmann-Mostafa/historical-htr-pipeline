@@ -2,7 +2,7 @@
 
 ## Overview
 This project implements a hybrid OCR pipeline for 16th-18th century handwritten Spanish documents.
-It combines Kraken OCR with a vision-language model to improve recognition of degraded and ambiguous text.
+It combines a Kraken model trained on the IEHHR dataset, with a vision-language model to improve recognition of degraded and ambiguous text.
 
 The submission is focused on a clear, reproducible notebook-based workflow for GSoC evaluation.
 
