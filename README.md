@@ -1,36 +1,45 @@
-# Historical HTR Pipeline for IEHHR Dataset
+# Hybrid OCR Pipeline for Early Modern Spanish Manuscripts
 
-An OCR pipeline for 16th-18th century Catalan and Spanish 
-handwritten documents, built for the RenAIssance GSoC project.
+A hybrid OCR pipeline combining Kraken OCR with GLM Vision for transcribing 16th–18th century handwritten Spanish documents.
 
-## Approach
-VLM-integrated pipeline using Kraken (fine-tuned) as OCR backbone
-with Gemini Vision for multi-stage recognition and correction.
+## Pipeline Overview
 
-## Dataset
-IEHHR Dataset — 968 training records, 253 test records
-Catalan parish registers and notarial documents
+1. **Image Preprocessing** — Resizing, denoising, contrast enhancement
+2. **Line Segmentation** — Peak-based projection profile detection
+3. **OCR Ensemble** — Kraken (local) + GLM Vision (API)
+4. **Output Refinement** — Paragraph-level correction with GLM
 
-## Results
+## Sample Output
+Cuando conocel Senor Alcalde dentro de su casa abridan
+Bautizo de Juanarecuita y Margarita d'Aurarcau
+Informacion de la uacan lalaguay yamana de Oaxaca
 
-| Model | CER | Notes |
-|-------|-----|-------|
-| Tesseract (cat) | 68.7% | Baseline 1 |
-| Kraken McCATMuS | 54.2% | Baseline 2 |
-| Kraken fine-tuned | TBD | In progress |
-| Full VLM pipeline | TBD | Planned |
 
-## Pipeline Stages
-1. Image preprocessing (Sauvola binarisation, deskew)
-2. Line segmentation (pre-segmented in IEHHR)
-3. Kraken HTR (fine-tuned on IEHHR training set)
-4. Gemini Vision reconciliation with semantic category labels
-5. Historical linguistic correction (u/v, abbreviations)
+## Requirements
+pillow
+numpy
+opencv-python
+kraken
+editdistance
+zhipuai
+pdf2image
+transformers
+matplotlib
+scipy
 
-## Setup
-```bash
-pip install -r requirements.txt
-```
 
 ## Usage
-See `notebooks/First.ipynb` for the full pipeline.
+
+1. Install dependencies: `pip install -r requirements.txt`
+2. Set your ZhipuAI API key in the notebook
+3. Run all cells in order
+
+## Limitations
+
+- Handwriting degradation affects accuracy
+- GLM API calls add latency
+- Some line segmentation issues with tightly spaced text
+
+## License
+
+MIT
