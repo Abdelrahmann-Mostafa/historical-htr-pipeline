@@ -11,7 +11,9 @@ A hybrid OCR pipeline combining Kraken OCR with GLM Vision for transcribing 16th
 
 ## Sample Output
 Cuando conocel Senor Alcalde dentro de su casa abridan
+
 Bautizo de Juanarecuita y Margarita d'Aurarcau
+
 Informacion de la uacan lalaguay yamana de Oaxaca
 
 
