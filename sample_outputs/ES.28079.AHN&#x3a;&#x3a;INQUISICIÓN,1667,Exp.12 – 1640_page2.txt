@@ -1,0 +1,34 @@
+=== RAW OCR ===
+[Image not provided]
+Hela Ingenira, heyaunto aleytios del mar de
+febrero mil y ciento y quarenta y
+Innimo =
+Innimo =
+Ulliceri Galdarron
+Innimo = Ulliceri Galdarron
+
+\[\text{10 man. dul f. of.}\]
+
+\[\text{24 La}\]
+
+\[\text{3 mg.} =
+[?]eris Callegas
+[?]eris Callegas
+[?]eris Callegas
+Archivos Estadísticos, https://www.estadisticas.gob.es
+
+=== REFINED OCR ===
+Hela Ingenira, heyaunto aleytios del mar de
+febrero mil y ciento y quarenta y
+Innimo = Ulliceri Galdarron
+Innimo = Ulliceri Galdarron
+Innimo = Ulliceri Galdarron
+
+\[\text{10 man. dul f. of.}\]
+
+\[\text{24 La}\]
+
+\[\text{3 mg.} = [?]eris Callegas
+[?]eris Callegas
+[?]eris Callegas
+Archivos Estadísticos, https://www.estadisticas.gob.es
